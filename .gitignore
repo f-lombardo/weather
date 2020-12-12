@@ -1,0 +1,13 @@
+.project
+.classpath
+target
+.settings/
+.springBeans
+.idea
+*.iws
+*.iml
+*.ipr
+/out/
+
+## MacOS ###
+.DS_Store
