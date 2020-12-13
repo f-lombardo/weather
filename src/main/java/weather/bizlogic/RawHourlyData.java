@@ -1,6 +1,9 @@
 package weather.bizlogic;
 
-import java.time.*;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 
 public class RawHourlyData {
@@ -35,5 +38,9 @@ public class RawHourlyData {
         return localTime.toLocalTime().isAfter(start)
                 &&
                 localTime.toLocalTime().isBefore(end);
+    }
+
+    public DataGroupingCriteria toDataGroupingCriteria() {
+        return new DataGroupingCriteria(day(), isWorkingHour());
     }
 }
