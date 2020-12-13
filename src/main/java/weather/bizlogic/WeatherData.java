@@ -22,12 +22,12 @@ public class WeatherData {
         return rawData.getRawHourlyData().stream();
     }
 
-    public Map<DataGroupingCriteria, DoubleSummaryStatistics> tempStatistics() {
+    public Map<GroupDataByDayAndWorkingHoursFlag, DoubleSummaryStatistics> tempStatistics() {
         return hourlyDataStream().collect(
                 groupingBy(HourlyData::toDataGroupingCriteria, summarizingDouble(HourlyData::getTemp)));
     }
 
-    public Map<DataGroupingCriteria, IntSummaryStatistics> humidityStatistics() {
+    public Map<GroupDataByDayAndWorkingHoursFlag, IntSummaryStatistics> humidityStatistics() {
         return hourlyDataStream().collect(
                 groupingBy(HourlyData::toDataGroupingCriteria, summarizingInt(HourlyData::getHumidity)));
     }
@@ -35,11 +35,11 @@ public class WeatherData {
     public Collection<DailyData> toDailyData() {
         SortedMap<String, DailyData> result = new TreeMap<String, DailyData>();
 
-        Map<DataGroupingCriteria, DoubleSummaryStatistics> tempStatistics = tempStatistics();
-        Map<DataGroupingCriteria, IntSummaryStatistics> humidityStatistics = humidityStatistics();
-        Set<DataGroupingCriteria> keys = tempStatistics.keySet();
+        Map<GroupDataByDayAndWorkingHoursFlag, DoubleSummaryStatistics> tempStatistics = tempStatistics();
+        Map<GroupDataByDayAndWorkingHoursFlag, IntSummaryStatistics> humidityStatistics = humidityStatistics();
+        Set<GroupDataByDayAndWorkingHoursFlag> keys = tempStatistics.keySet();
 
-        for (DataGroupingCriteria key: keys) {
+        for (GroupDataByDayAndWorkingHoursFlag key: keys) {
             String day = key.getDay();
             DailyData dailyData = result.getOrDefault(day, new DailyData(day));
             dailyData.setTemperature(key.isWorkingHour(), tempStatistics.get(key));

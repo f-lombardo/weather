@@ -40,7 +40,7 @@ public class HourlyData {
                 localTime.toLocalTime().isBefore(end);
     }
 
-    public DataGroupingCriteria toDataGroupingCriteria() {
-        return new DataGroupingCriteria(day(), isWorkingHour());
+    public GroupDataByDayAndWorkingHoursFlag toDataGroupingCriteria() {
+        return new GroupDataByDayAndWorkingHoursFlag(day(), isWorkingHour());
     }
 }

@@ -14,12 +14,12 @@ public class WeatherDataTest {
     public void canComputeStatistics() {
         WeatherData rawData = new WeatherData(readJsonNodeFromResources("/openWeatherResponse.json"));
 
-        Map<DataGroupingCriteria, IntSummaryStatistics> humidityStatistics = rawData.humidityStatistics();
-        Map<DataGroupingCriteria, DoubleSummaryStatistics> tempStatistics = rawData.tempStatistics();
+        Map<GroupDataByDayAndWorkingHoursFlag, IntSummaryStatistics> humidityStatistics = rawData.humidityStatistics();
+        Map<GroupDataByDayAndWorkingHoursFlag, DoubleSummaryStatistics> tempStatistics = rawData.tempStatistics();
 
         assertArrayEquals(humidityStatistics.keySet().toArray(), tempStatistics.keySet().toArray());
 
-        Object[] days = humidityStatistics.keySet().stream().map(DataGroupingCriteria::getDay).distinct().sorted().toArray();
+        Object[] days = humidityStatistics.keySet().stream().map(GroupDataByDayAndWorkingHoursFlag::getDay).distinct().sorted().toArray();
 
         assertArrayEquals(new Object[] {"2020-12-12", "2020-12-13", "2020-12-14"}, days);
     }
