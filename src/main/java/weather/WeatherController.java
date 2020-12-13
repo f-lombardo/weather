@@ -1,12 +1,12 @@
-package sample;
+package weather;
 
 import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import sample.bizlogic.Statistics;
-import sample.bizlogic.Weather;
-import sample.bizlogic.DailyData;
+import weather.bizlogic.Statistics;
+import weather.bizlogic.Weather;
+import weather.bizlogic.DailyData;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,4 +1,4 @@
-package sample;
+package weather;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;

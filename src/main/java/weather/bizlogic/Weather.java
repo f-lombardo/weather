@@ -1,4 +1,4 @@
-package sample.bizlogic;
+package weather.bizlogic;
 
 import java.util.List;
 

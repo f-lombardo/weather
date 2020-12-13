@@ -13,10 +13,10 @@ Its a simple maven based spring boot project.
 
 Or else.
 clone the project in an empty folder.   
-* git clone -b springdoc-openapi-intro https://github.com/teq-niq/sample.git  
-* cd sample  
+* git clone -b springdoc-openapi-intro https://github.com/teq-niq/weather.git  
+* cd weather  
 * mvn clean package  
-* java -jar target/sample-0.0.1.jar  
+* java -jar target/weather-0.0.1.jar  
   
 
 Do also read later article https://dzone.com/articles/doing-more-with-springdoc-openapi  

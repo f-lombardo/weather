@@ -1,4 +1,4 @@
-package sample.bizlogic;
+package weather.bizlogic;
 
 public class Statistics {
     private final double min;

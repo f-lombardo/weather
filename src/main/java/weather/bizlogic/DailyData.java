@@ -1,4 +1,4 @@
-package sample.bizlogic;
+package weather.bizlogic;
 
 public class DailyData {
     private final String day;
