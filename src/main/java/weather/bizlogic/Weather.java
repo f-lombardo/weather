@@ -1,12 +1,12 @@
 package weather.bizlogic;
 
-import java.util.List;
+import java.util.Collection;
 
 public class Weather {
     private final String city;
-    private final List<DailyData> forecast;
+    private final Collection<DailyData> forecast;
 
-    public Weather(String city, List<DailyData> forecast) {
+    public Weather(String city, Collection<DailyData> forecast) {
         this.city = city;
         this.forecast = forecast;
     }
@@ -15,7 +15,7 @@ public class Weather {
         return city;
     }
 
-    public List<DailyData> getForecast() {
+    public Collection<DailyData> getForecast() {
         return forecast;
     }
 }

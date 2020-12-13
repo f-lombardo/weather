@@ -1,32 +1,47 @@
 package weather.bizlogic;
 
+import java.util.DoubleSummaryStatistics;
+import java.util.IntSummaryStatistics;
+
 public class DailyData {
     private final String day;
-    private final Statistics workingHoursTemperature;
-    private final Statistics workingHoursHumidity;
-    private final Statistics nonWorkingHoursTemperature;
-    private final Statistics nonWorkingHoursHumidity;
+    private Statistics workingHoursTemperature;
+    private Statistics nonWorkingHoursTemperature;
+    private Statistics nonWorkingHoursHumidity;
+    private Statistics workingHoursHumidity;
 
-    public DailyData(String day,
-                     Statistics workingHoursTemperature,
-                     Statistics workingHoursHumidity,
-                     Statistics nonWorkingHoursTemperature,
-                     Statistics nonWorkingHoursHumidity) {
+    public DailyData(String day) {
         this.day = day;
-        this.workingHoursTemperature = workingHoursTemperature;
-        this.workingHoursHumidity = workingHoursHumidity;
-        this.nonWorkingHoursTemperature = nonWorkingHoursTemperature;
-        this.nonWorkingHoursHumidity = nonWorkingHoursHumidity;
     }
 
-    public String getDay() { return day; }
+    public void setTemperature(boolean workingHour, DoubleSummaryStatistics temperature) {
+        if (workingHour) {
+            this.workingHoursTemperature = new Statistics(temperature);
+        } else {
+            this.nonWorkingHoursTemperature = new Statistics(temperature);
+        }
+    }
 
-    public Statistics getWorkingHoursTemperature() {
-        return workingHoursTemperature;
+    public void setHumidity(boolean workingHour, IntSummaryStatistics humidity) {
+        if (workingHour) {
+            this.workingHoursHumidity = new Statistics(humidity);
+        } else {
+            this.nonWorkingHoursHumidity = new Statistics(humidity);
+        }
+    }
+
+
+    public String getDay() {
+        return day;
     }
 
     public Statistics getWorkingHoursHumidity() {
         return workingHoursHumidity;
+    }
+
+
+    public Statistics getWorkingHoursTemperature() {
+        return workingHoursTemperature;
     }
 
     public Statistics getNonWorkingHoursTemperature() {
@@ -36,4 +51,5 @@ public class DailyData {
     public Statistics getNonWorkingHoursHumidity() {
         return nonWorkingHoursHumidity;
     }
+
 }

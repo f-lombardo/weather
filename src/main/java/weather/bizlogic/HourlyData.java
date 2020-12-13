@@ -6,12 +6,12 @@ import java.time.LocalTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 
-public class RawHourlyData {
+public class HourlyData {
     private final double temp;
     private final int humidity;
     private final LocalDateTime localTime;
 
-    public RawHourlyData(long greenwichTime, int timezone_offset, double temp, int humidity) {
+    public HourlyData(long greenwichTime, int timezone_offset, double temp, int humidity) {
         this.localTime =
                 Instant.ofEpochMilli(greenwichTime * 1000).atOffset(ZoneOffset.ofTotalSeconds(timezone_offset)).toLocalDateTime();
         this.temp = temp;

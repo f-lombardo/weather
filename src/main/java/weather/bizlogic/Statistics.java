@@ -1,5 +1,8 @@
 package weather.bizlogic;
 
+import java.util.DoubleSummaryStatistics;
+import java.util.IntSummaryStatistics;
+
 public class Statistics {
     private final double min;
     private final double max;
@@ -9,6 +12,14 @@ public class Statistics {
         this.min = min;
         this.max = max;
         this.average = average;
+    }
+
+    public Statistics(DoubleSummaryStatistics summaryStatistics) {
+        this(summaryStatistics.getMin(), summaryStatistics.getMax(), summaryStatistics.getAverage());
+    }
+
+    public Statistics(IntSummaryStatistics intSummaryStatistics) {
+        this(intSummaryStatistics.getMin(), intSummaryStatistics.getMax(), intSummaryStatistics.getAverage());
     }
 
     public double getMin() {

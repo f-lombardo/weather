@@ -1,23 +1,7 @@
-# README #
+# Weather data API example 
 
-This branch contains code for https://dzone.com/articles/openapi-3-documentation-with-spring-boot.
+## API documentation
+If you are running the app on localhost:8080, use this URL:
 
-### How do I get set up? ###
-Preerquisites:
-* Java 8  
-* Maven 3  
-* Git  
-
-Follow steps in article- https://dzone.com/articles/openapi-3-documentation-with-spring-boot.
-Its a simple maven based spring boot project.
-
-Or else.
-clone the project in an empty folder.   
-* git clone -b springdoc-openapi-intro https://github.com/teq-niq/weather.git  
-* cd weather  
-* mvn clean package  
-* java -jar target/weather-0.0.1.jar  
-  
-
-Do also read later article https://dzone.com/articles/doing-more-with-springdoc-openapi  
+http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config
 
