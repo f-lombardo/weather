@@ -11,3 +11,5 @@ target
 
 ## MacOS ###
 .DS_Store
+
+/config/application.properties
