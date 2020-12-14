@@ -12,6 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static weather.utils.TestUtils.readJsonNodeFromResources;
 
 public class WeatherDataTest {
+
+    private final static Object[] sampleDays = {"2020-12-14", "2020-12-15", "2020-12-16"};
+
     @Test
     public void canComputeStatistics() {
         WeatherData rawData = new WeatherData(readJsonNodeFromResources("/openWeatherResponse.json"));
@@ -23,7 +26,7 @@ public class WeatherDataTest {
 
         Object[] days = humidityStatistics.keySet().stream().map(GroupDataByDayAndWorkingHoursFlag::getDay).distinct().sorted().toArray();
 
-        assertArrayEquals(new Object[] {"2020-12-12", "2020-12-13", "2020-12-14"}, days);
+        assertArrayEquals(sampleDays, days);
     }
 
     @Test
@@ -32,12 +35,12 @@ public class WeatherDataTest {
         Collection<DailyData> dailyData = rawData.toDailyData();
         assertEquals(3, dailyData.size());
 
-        assertArrayEquals(new Object[] {"2020-12-12", "2020-12-13", "2020-12-14"}, dailyData.stream().map(DailyData::getDay).toArray());
+        assertArrayEquals(sampleDays, dailyData.stream().map(DailyData::getDay).toArray());
 
         DailyData firstDay = dailyData.iterator().next();
 
-        assertEquals(5.32, firstDay.getNonWorkingHoursTemperature().getMin());
-        assertEquals(7.57, firstDay.getNonWorkingHoursTemperature().getMax());
-        assertEquals(6.283, firstDay.getNonWorkingHoursTemperature().getAverage(), 0.001);
+        assertEquals(8.68, firstDay.getNonWorkingHoursTemperature().getMin());
+        assertEquals(9.76, firstDay.getNonWorkingHoursTemperature().getMax());
+        assertEquals(9.233, firstDay.getNonWorkingHoursTemperature().getAverage(), 0.001);
     }
 }
