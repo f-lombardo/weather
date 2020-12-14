@@ -25,3 +25,18 @@ If you are running the app on localhost:8080, use this URL:
 
 http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config
 
+## Running in Docker
+
+From the root directory of the project, run:
+
+```
+docker build -f ./docker/Dockerfile -t weather .
+```
+
+This will create the `weather` container. Then
+
+```
+docker run -p 8080:8080/tcp -it weather
+```
+
+This way the you can access service API on http://localhost:8080 
