@@ -1,21 +1,16 @@
 package weather.bizlogic;
 
-import com.fasterxml.jackson.databind.JsonNode;
-
 import java.util.*;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.*;
 
 public class WeatherData {
-    private final RawWeatherData rawData;
 
-    public WeatherData(JsonNode jsonNode) {
-        this.rawData = new RawWeatherData(jsonNode);
-    }
+    private final RawWeatherDataPoJo rawData;
 
-    public WeatherData(String jsonString) {
-        this.rawData = new RawWeatherData(jsonString);
+    public WeatherData(RawWeatherDataPoJo rawData) {
+        this.rawData = rawData;
     }
 
     private Stream<HourlyData>hourlyDataStream() {

@@ -1,8 +1,8 @@
 package weather.external;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.web.client.RestTemplate;
 import weather.bizlogic.GeoPosition;
+import weather.bizlogic.RawWeatherDataPoJo;
 import weather.bizlogic.WeatherDataService;
 
 public class HttpWeatherDataService implements WeatherDataService {
@@ -14,9 +14,10 @@ public class HttpWeatherDataService implements WeatherDataService {
         this.appId = appId;
     }
 
+
     @Override
-    public JsonNode weatherJsonFor(GeoPosition position) {
-        return restTemplate.getForEntity(urlFor(position), JsonNode.class).getBody();
+    public RawWeatherDataPoJo rawWeatherDataFor(GeoPosition position) {
+        return restTemplate.getForEntity(urlFor(position), RawWeatherDataPoJo.class).getBody();
     }
 
     private String urlFor(GeoPosition position) {

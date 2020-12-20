@@ -39,4 +39,4 @@ This will create the `weather` container. Then
 docker run -p 8080:8080/tcp -it weather
 ```
 
-This way the you can access service API on http://localhost:8080 
+This way you can access service API on http://localhost:8080 

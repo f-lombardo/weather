@@ -10,6 +10,6 @@ public class WeatherSearch {
     }
 
     public Weather findWeatherFor(String city) {
-        return new Weather(city, new WeatherData(weatherDataService.weatherJsonFor(geolocationService.getGeoPosition(city))).toDailyData());
+        return new Weather(city, new WeatherData(weatherDataService.rawWeatherDataFor(geolocationService.getGeoPosition(city))).toDailyData());
     }
 }
